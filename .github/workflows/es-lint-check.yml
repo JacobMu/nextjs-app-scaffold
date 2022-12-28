@@ -1,8 +1,7 @@
 name: ts-lint-check
 
 run-name: ts check
-on:
-  push
+on: push
 jobs:
   ts-lint-check:
     runs-on: ubuntu-latest
