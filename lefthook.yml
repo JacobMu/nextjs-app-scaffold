@@ -2,7 +2,7 @@ pre-commit:
   parallel: true
   commands:
     prettier:
-      run: pnpm prettier --write {staged_files}
+      run: pnpm prettier {staged_files}
       exclude: "^.*ignore+"
     eslint:
       glob: "*.{js,ts,jsx,tsx}"
