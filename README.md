@@ -1,5 +1,6 @@
 This is scaffold for NextJS (v13) + TS application.<br/>
 Consists of:
+
 - NextJS (v13) + TS (uses experimental `/app` folder)
 - Tailwind + PostCSS
 - Jest + RTL + Cypress
