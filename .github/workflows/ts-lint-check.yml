@@ -5,8 +5,6 @@ on:
   pull_request:
     types: [opened]
   push:
-    branches:
-      - "*"
 
 jobs:
   ts-lint-check:
