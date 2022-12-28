@@ -1,7 +1,9 @@
 name: ts-lint-check
+
 run-name: ts check
 on:
-  pull_request: [opened]
+  pull_request:
+    types: [opened]
 jobs:
   ts-lint-check:
     runs-on: ubuntu-latest
