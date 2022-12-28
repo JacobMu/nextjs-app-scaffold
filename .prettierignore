@@ -1,6 +1,7 @@
 .vscode
 .next
 .idea
+.github
 build
 coverage
 node_modules
