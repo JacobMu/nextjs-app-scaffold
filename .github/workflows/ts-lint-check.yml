@@ -1,7 +1,13 @@
 name: ts-lint-check
 
 run-name: ts check
-on: push
+on:
+  pull_request:
+    types: [opened]
+  push:
+    branches:
+      - "*"
+
 jobs:
   ts-lint-check:
     runs-on: ubuntu-latest
@@ -16,7 +22,10 @@ jobs:
         uses: pnpm/action-setup@v2
         with:
           version: latest
-          run_install:
-            - args: [--frozen-lockfile, typescript]
-      - run: pnpm i
-      - run: pnpm tsc
+          run_install: true
+
+      - name: Install deps
+        run: pnpm i
+
+      - name: Run typescript compiler
+        run: pnpm tsc
