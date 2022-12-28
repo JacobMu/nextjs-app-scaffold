@@ -15,7 +15,6 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
-		"prettier": "prettier --write --plugin-search-dir=. .",
 		"cypress:open": "pnpm cypress open"
 	},
 	"dependencies": {
