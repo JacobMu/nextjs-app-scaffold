@@ -1,7 +1,13 @@
 name: eslint-check
 
 run-name: eslint check
-on: push
+on:
+  pull_request:
+    types: [opened]
+  push:
+    branches:
+      - "*"
+
 jobs:
   eslint-check:
     runs-on: ubuntu-latest
@@ -16,11 +22,10 @@ jobs:
         uses: pnpm/action-setup@v2
         with:
           version: latest
-          run_install:
-            args: [--frozen-lockfile, eslint]
+          run_install: true
 
       - name: Install deps
         run: pnpm i
 
-      - name: Run typescript compiler
+      - name: Run eslint compiler
         run: pnpm eslint .
