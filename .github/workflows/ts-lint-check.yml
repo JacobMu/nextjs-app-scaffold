@@ -1,4 +1,5 @@
 name: ts-lint-check
+
 run-name: ts check
 on: push
 jobs:
@@ -18,4 +19,4 @@ jobs:
           run_install:
             - args: [--frozen-lockfile, typescript]
       - run: pnpm i
-      - run: tsc
+      - run: pnpm tsc

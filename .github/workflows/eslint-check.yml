@@ -1,9 +1,9 @@
-name: ts-lint-check
+name: eslint-check
 
 run-name: ts check
 on: push
 jobs:
-  ts-lint-check:
+  eslint-check:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -23,4 +23,4 @@ jobs:
         run: pnpm i
 
       - name: Run typescript compiler
-        run: tsc app/*
+        run: pnpm eslint .
