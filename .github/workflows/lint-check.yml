@@ -1,13 +1,10 @@
-name: eslint-check
+name: lint checks
 
-run-name: eslint check
-on:
-  pull_request:
-    types: [opened]
-  push:
+run-name: code linting
+on: pull_request
 
 jobs:
-  eslint-check:
+  lint-check:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -20,10 +17,15 @@ jobs:
         uses: pnpm/action-setup@v2
         with:
           version: latest
-          run_install: true
 
       - name: Install deps
-        run: pnpm i
+        run: pnpm i --frozen-lockfile
 
-      - name: Run eslint compiler
-        run: pnpm eslint .
+      - name: Run typescript compiler check
+        run: pnpm tsc
+
+      - name: Run eslint check
+        run: pnpm eslint
+
+      - name: Run prettier check
+        run: pnpm prettier --check
