@@ -1,11 +1,5 @@
 pre-commit:
   parallel: true
   commands:
-    prettier:
-      run: pnpm prettier --write {staged_files}
-      exclude: "^.*ignore+"
-    eslint:
-      glob: "*.{js,ts,jsx,tsx}"
-      run: pnpm eslint {staged_files}
     convention-message:
       run: echo "$COMMIT_MESSAGE" | pnpm commitlint --verbose -- --from=HEAD~1
