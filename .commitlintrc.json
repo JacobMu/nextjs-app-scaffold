@@ -1,11 +1,12 @@
 {
 	"extends": ["@commitlint/config-conventional"],
 	"rules": {
-		"scope-enum": [1, "always", "FP"],
+		"scope-enum": [1, "always", ["SCAFFOLD"]],
 		"scope-case": [1, "always", "upper-case"],
 		"subject-max-length": [1, "always", 140],
 		"subject-min-length": [1, "always", 5],
-		"subject-empty": [1, "always"],
+		"subject-empty": [1, "never"],
+		"subject-case": [1, "always", "sentence-case"],
 		"type-empty": [1, "always"]
 	}
 }

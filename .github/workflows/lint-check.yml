@@ -1,11 +1,19 @@
-name: lint checks
+name: frontend linting and formatting
 
-run-name: code linting
-on: pull_request
+run-name: lint and format check
+on:
+  pull_request:
+    paths:
+      - "app/**"
+
+defaults:
+  run:
+    working-directory: app
 
 jobs:
   lint-check:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -19,7 +27,7 @@ jobs:
         uses: pnpm/action-setup@v2
         with:
           version: latest
-        
+
       - name: Get pnpm store directory
         id: pnpm-cache
         shell: bash
@@ -35,10 +43,10 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install deps
-        run: pnpm i --frozen-lockfile
+        run: pnpm i --no-frozen-lockfile
 
       - name: Run typescript compiler check
-        run: pnpm tsc
+        run: pnpm tsc -p ./tsconfig.json
 
       - name: Run eslint check
         run: pnpm eslint
